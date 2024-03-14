@@ -101,7 +101,6 @@ class ClockView @JvmOverloads constructor(context: Context, attrs: AttributeSet)
 
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
-        super.onSizeChanged(w, h, oldw, oldh)
         clockRadius = min(w, h) / 2f
         centerX = w / 2f
         centerY = h / 2f
@@ -179,11 +178,11 @@ class ClockView @JvmOverloads constructor(context: Context, attrs: AttributeSet)
 
     private fun drawClockHands(canvas: Canvas) {
         val calendar = Calendar.getInstance()
-        var hour = calendar.get(Calendar.HOUR)
+        val hour = calendar.get(Calendar.HOUR)
         val minute = calendar.get(Calendar.MINUTE)
         val second = calendar.get(Calendar.SECOND)
 //        Log.d("clock","hour: $hour minute: $minute second: $second")
-        val hourWithMinutes = hour + minute / 60
+        val hourWithMinutes = hour * 60 + minute
 
         drawHourHand(canvas, hourWithMinutes.toFloat())
         drawMinuteHand(canvas, minute.toFloat())
@@ -191,7 +190,7 @@ class ClockView @JvmOverloads constructor(context: Context, attrs: AttributeSet)
 
     }
 
-    private fun drawHourHand(canvas: Canvas, hourInMinutes: Float) {
+    private fun drawHourHand(canvas: Canvas, hourWithMinutes: Float) {
         paint.apply {
             strokeWidth = clockRadius / 20
             color = hourHandColor
@@ -199,7 +198,7 @@ class ClockView @JvmOverloads constructor(context: Context, attrs: AttributeSet)
             strokeCap = Paint.Cap.ROUND
 
         }
-        val angle = hourInMinutes * (Math.PI / 6) + START_ANGLE
+        val angle = hourWithMinutes/60 * (Math.PI / 6) + START_ANGLE
 
         canvas.drawLine(
             (centerX + cos(angle) * clockRadius / 3).toFloat(),
