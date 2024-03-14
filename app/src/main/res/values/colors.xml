@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="borderColor">#FF000000</color>
+    <color name="clockFaceBackgroundColor">#FFFFFFFF</color>
+    <color name="secondHandColor">#009688</color>
+    <color name="minuteHandColor">#2196F3</color>
+    <color name="hourHandColor">#673AB7</color>
+    <color name="dotColor">#00BCD4</color>
+    <color name="numberColor">#FF9800</color>
 </resources>
