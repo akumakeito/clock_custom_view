@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Clock Custom View</string>
+    <string name="big_clock">Big</string>
+    <string name="small_clock">Small</string>
+    <string name="colorful_clock">Color</string>
+    <string name="default_clock">Default</string>
 </resources>

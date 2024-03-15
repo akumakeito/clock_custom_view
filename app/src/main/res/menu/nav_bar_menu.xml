@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/fragmentDefaultClock"
+        android:icon="@drawable/baseline_access_time_filled_24"
+        android:title="@string/default_clock" />
+
+    <item
+        android:id="@+id/fragmentBigClock"
+        android:icon="@drawable/baseline_access_time_filled_24"
+        android:title="@string/big_clock" />
+
+    <item
+        android:id="@+id/fragmentSmallClock"
+        android:icon="@drawable/baseline_access_time_filled_24"
+        android:title="@string/small_clock" />
+
+    <item
+        android:id="@+id/colorfulClockFragment"
+        android:icon="@drawable/baseline_access_time_filled_24"
+        android:title="@string/colorful_clock" />
+
+
+</menu>

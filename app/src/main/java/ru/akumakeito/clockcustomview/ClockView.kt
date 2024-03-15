@@ -4,19 +4,12 @@ import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Paint
 import android.graphics.PointF
-import android.graphics.RectF
-import android.graphics.Shader
 import android.graphics.Typeface
-import android.net.wifi.rtt.CivicLocationKeys.STATE
 import android.os.Build
 import android.os.Bundle
 import android.os.Parcelable
 import android.util.AttributeSet
-import android.util.Log
 import android.view.View
-import androidx.annotation.ColorInt
-import androidx.core.content.withStyledAttributes
-import com.google.android.material.resources.MaterialResources.getDimensionPixelSize
 import java.util.Calendar
 import kotlin.math.cos
 import kotlin.math.min
@@ -36,7 +29,7 @@ private const val MINUTE_HAND_COLOR = "minuteHandColor"
 private const val SECOND_HAND_COLOR = "secondHandColor"
 
 
-class ClockView @JvmOverloads constructor(context: Context, attrs: AttributeSet) :
+class ClockView(context: Context, attrs: AttributeSet) :
     View(context, attrs) {
 
     private var clockRadius = 0f
@@ -44,25 +37,19 @@ class ClockView @JvmOverloads constructor(context: Context, attrs: AttributeSet)
     private var centerY = 0.0f
     private var positionOnClock = PointF(0.0f, 0.0f)
 
-    private var clockSize = 0f
-    private var numberSize = 0
-    private var clockFaceBackgroundColor = 0
-    private var borderColor = 0
-    private var numberColor = 0
-    private var dotColor = 0
-    private var hourHandColor = 0
-    private var minuteHandColor = 0
-    private var secondHandColor = 0
+    var clockFaceBackgroundColor = 0
+    var borderColor = 0
+    var numberColor = 0
+    var dotColor = 0
+    var hourHandColor = 0
+    var minuteHandColor = 0
+    var secondHandColor = 0
 
 
     init {
         context.theme.obtainStyledAttributes(attrs, R.styleable.ClockView, 0, 0).apply {
 
             try {
-                clockSize =
-                    getDimension(R.styleable.ClockView_clockSize, R.dimen.clock_size.toFloat())
-                numberSize =
-                    getDimensionPixelSize(R.styleable.ClockView_numberSize, R.dimen.numberSize)
                 clockFaceBackgroundColor = getColor(
                     R.styleable.ClockView_clockFaceBackgroundColor,
                     context.getColor(R.color.clockFaceBackgroundColor)
@@ -198,7 +185,7 @@ class ClockView @JvmOverloads constructor(context: Context, attrs: AttributeSet)
             strokeCap = Paint.Cap.ROUND
 
         }
-        val angle = hourWithMinutes/60 * (Math.PI / 6) + START_ANGLE
+        val angle = hourWithMinutes / 60 * (Math.PI / 6) + START_ANGLE
 
         canvas.drawLine(
             (centerX + cos(angle) * clockRadius / 3).toFloat(),
@@ -266,7 +253,7 @@ class ClockView @JvmOverloads constructor(context: Context, attrs: AttributeSet)
         postInvalidateDelayed(REFRESH_PERIOD)
     }
 
-    override fun onSaveInstanceState(): Parcelable? {
+    override fun onSaveInstanceState(): Parcelable {
         val bundle = Bundle()
         bundle.putParcelable(CLOCK_STATE, super.onSaveInstanceState())
         bundle.putFloat(CLOCK_RADIUS, clockRadius)

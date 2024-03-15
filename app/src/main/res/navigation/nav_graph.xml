@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragmentDefaultClock">
+
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="ru.akumakeito.clockcustomview.MainActivity"
+        android:label="activity_main"
+        tools:layout="@layout/activity_main" />
+    <fragment
+        android:id="@+id/colorfulClockFragment"
+        android:name="ru.akumakeito.clockcustomview.FragmentColorfulClock"
+        android:label="ColorfulClockFragment" />
+    <fragment
+        android:id="@+id/fragmentBigClock"
+        android:name="ru.akumakeito.clockcustomview.FragmentBigClock"
+        android:label="FragmentBigClock" />
+    <fragment
+        android:id="@+id/fragmentSmallClock"
+        android:name="ru.akumakeito.clockcustomview.FragmentSmallClock"
+        android:label="FragmentSmallClock" />
+    <fragment
+        android:id="@+id/fragmentDefaultClock"
+        android:name="ru.akumakeito.clockcustomview.FragmentDefaultClock"
+        android:label="FragmentDefaultClock" />
+</navigation>
