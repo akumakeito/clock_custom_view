@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="ClockView">
-        <attr name="clockSize" format="dimension"/>
-        <attr name="numberSize" format="dimension"/>
         <attr name="clockFaceBackgroundColor" format="color"/>
         <attr name="borderColor" format="color"/>
         <attr name="numberColor" format="color"/>
